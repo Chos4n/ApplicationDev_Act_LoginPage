@@ -39,7 +39,6 @@ body{
     }
 }
 
-
 .container{
 
     width: 400px;
@@ -76,14 +75,72 @@ body{
     color: #66ff00;
 }
 
+.glitchbg{
+    animation: glitchbg 5s infinite;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    filter: opacity(.4)  blur(10px) brightness(70%);
+    
+    box-shadow: 
+    0.5em 0 0 rgba(225, 0, 0, .75),
+    -0.25em -0.5em 0 rgba(0, 225, 0, .75),
+    0.25em 0.5em 0 rgba(0, 0, 225, .75);
+}
+
+.glitchbg span{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    
+    box-shadow: 
+    0.5em 0 0 rgba(225, 0, 0, .75),
+    -0.25em -0.5em 0 rgba(0, 225, 0, .75),
+    0.25em 0.5em 0 rgba(0, 0, 225, .75);
+}
+
+@keyframes glitchbg{
+    0%{
+        box-shadow: 
+        1em -2em 0 rgba(225, 0, 0, .75),
+        2em 1em 0 rgba(0, 225, 0, .75),
+        -1em -1em 0 rgba(0, 0, 225, .75);
+    }
+    15%{
+        box-shadow: 
+        -1em 2em 0 rgba(225, 0, 0, .75),
+        -1em 1em 0 rgba(0, 225, 0, .75),
+        2em -1em 0 rgba(0, 0, 225, .75);
+    }
+    50%{
+        box-shadow: 
+        -2em -1em 0 rgba(225, 0, 0, .75),
+        -1em 2em 0 rgba(0, 225, 0, .75),
+        2em 1em 0 rgba(0, 0, 225, .75);
+    }
+    100%{
+        box-shadow: 
+        1em 2em 0 rgba(225, 0, 0, .75),
+        2em -1em 0 rgba(0, 225, 0, .75),
+        -1em -2em 0 rgba(0, 0, 225, .75);
+    }
+}
+
+.glitchbg span:first-child{
+    animation: glitchbg 1000ms infinite;
+}
+
+.glitchbg span:last-child{
+    animation: glitchbg 2000ms infinite;
+}    
 .glitch{
 
     text-transform: uppercase;
     position: relative;
     text-shadow: 
-    0.05em 0 0 rgba(225, 0, 0, .75),
-    -0.025em -0.05em 0 rgba(0, 225, 0, .75),
-    0.025em 0.05em 0 rgba(0, 0, 225, .75);
+    0.1em 0 0 rgba(225, 0, 0, .75),
+    -0.05em -0.1em 0 rgba(0, 225, 0, .75),
+    0.05em 0.1em 0 rgba(0, 0, 225, .75);
    
 }
 
@@ -95,7 +152,7 @@ body{
 }
 
 .glitch span:first-child{
-    animation: glitch 600ms infinite;
+    animation: glitch 400ms infinite;
     z-index: 1;
     clip-path: polygon(0 0, 100% 0, 100% 30%, 0 45%);
     transform: translate(-.05em, -.0125em);
@@ -103,37 +160,37 @@ body{
 }
 
 .glitch span:last-child{
-    animation: glitch 300ms infinite;
+    animation: glitch 500ms infinite;
     z-index: 1;
     clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-    transform: translate(.05em, .025em);
+    transform: translate(.05em, .0175em);
     opacity: 0.8;
 }
 
 @keyframes glitch{
     0%{
         text-shadow: 
-        .025em -.05em 0 rgba(225, 0, 0, .75),
-        .05em .025em 0 rgba(0, 225, 0, .75),
-        -.025em -.05em 0 rgba(0, 0, 225, .75);
+        .09em -.09em 0 rgba(225, 0, 0, .75),
+        .09em .05em 0 rgba(0, 225, 0, .75),
+        -.09em -.09em 0 rgba(0, 0, 225, .75);
     }
     15%{
         text-shadow: 
-        -.05em .05em 0 rgba(225, 0, 0, .75),
-        -.05em .05em 0 rgba(0, 225, 0, .75),
-        .1em -.025em 0 rgba(0, 0, 225, .75);
+        -.09em .09em 0 rgba(225, 0, 0, .75),
+        -.09em .09em 0 rgba(0, 225, 0, .75),
+        .1em -.09em 0 rgba(0, 0, 225, .75);
     }
     50%{
         text-shadow: 
-        -.05em -.025em 0 rgba(225, 0, 0, .75),
-        -.05em .0.025em 0 rgba(0, 225, 0, .75),
-        .05em .09em 0 rgba(0, 0, 225, .75);
+        -.09em -.09em 0 rgba(225, 0, 0, .75),
+        -.09em .0.09em 0 rgba(0, 225, 0, .75),
+        .09em .09em 0 rgba(0, 0, 225, .75);
     }
     100%{
         text-shadow: 
-        .05em .025em 0 rgba(225, 0, 0, .75),
-        .05em -.05em 0 rgba(0, 225, 0, .75),
-        -.025em -.05em 0 rgba(0, 0, 225, .75);
+        .09em .09em 0 rgba(225, 0, 0, .75),
+        .09em -.09em 0 rgba(0, 225, 0, .75),
+        -.09em -.09em 0 rgba(0, 0, 225, .75);
     }
 }
 
@@ -177,14 +234,28 @@ body{
     box-shadow: 0 0 10pc rgba(0, 0, 0, .1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: rgb(45, 45, 45);
     font-weight: 600;
     transition: 0.15s;
 }
 
+.container .register-link .btn{
+    width: 90px;
+    height: 20px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10pc rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: rgb(45, 45, 45);
+    font-weight: 600;
+    transition: 0.15s;
+}
 
 .btn:hover{
-    letter-spacing: 0.20em;
+    letter-spacing: 0.01em;
     font-size: 25px;
     background-color: #66ff00;
     box-shadow: 0 0 10px #66ff00;
@@ -263,4 +334,14 @@ input:valid + .labelline {
     padding: 0 12px;
     transform: translate(-15px,-16px) scale(0.88);
     z-index: 1111;
+}
+
+#login{
+    position: relative;
+}
+
+#register{
+  position: relative;
+  top: -343px;
+  left: 400px;
 }
